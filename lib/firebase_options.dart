@@ -1,37 +1,40 @@
-import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:google_fonts/google_fonts.dart';
-// Ensure this file exists and defines WelcomeScreen
-// Remove this line, as this file is already 'firebase_options.dart' and should not import itself.
+// File: lib/firebase_options.dart
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  runApp(MindNestApp());
-}
+import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
+import 'package:flutter/foundation.dart'
+    show defaultTargetPlatform, kIsWeb, TargetPlatform;
 
 class DefaultFirebaseOptions {
-  // ignore: prefer_typing_uninitialized_variables
-  static var currentPlatform;
-}
-
-class MindNestApp extends StatelessWidget {
-  const MindNestApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'MindNest',
-      theme: ThemeData(
-        textTheme: GoogleFonts.poppinsTextTheme(),
-        primarySwatch: Colors.teal,
-      ),
-      home: WelcomeScreen(),
-    );
+  static FirebaseOptions get currentPlatform {
+    if (kIsWeb) {
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
+    }
+    switch (defaultTargetPlatform) {
+      case TargetPlatform.android:
+        return android;
+      default:
+        throw UnsupportedError(
+          'DefaultFirebaseOptions are not supported for this platform.',
+        );
+    }
   }
-  
-  // ignore: non_constant_identifier_names
-  WelcomeScreen() {}
+
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyCo058tp9xGBG7pV9p-czta1JqsBjo_YHw',
+    appId: '1:1028508432668:android:1417bd1970f06ca435a2d9',
+    messagingSenderId: '1028508432668',
+    projectId: 'mindnestapp',
+    storageBucket: 'mindnestapp.firebasestorage.app',
+  );
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyDKbwFSqs2Tm4TFYELehJmtSHajf-t1dDU',
+    appId: '1:1028508432668:web:518d9955f6ecf90935a2d9',
+    messagingSenderId: '1028508432668',
+    projectId: 'mindnestapp',
+    authDomain: 'mindnestapp.firebaseapp.com',
+    storageBucket: 'mindnestapp.firebasestorage.app',
+  );
 }

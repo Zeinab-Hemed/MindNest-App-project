@@ -1,0 +1,27 @@
+hello
+where are you stack at?
+let me show you
+
+you have not linked any project so far...
+i did using google account
+
+open
+ firebase page
+have your configured the keys
+not
+yeah so your project is not configured with your flutter, i think kuna stage uli pass
+also did you bring tthe google json file to your vscode
+STILL SHOWING CCREATING FROM MY SIDE
+
+
+say yes
+it will list all your firebase project
+
+you diding configure your json with all the relevant filesd
+ooh okay i'll have to do that
+ use ai to guide you on how to configure the json files, the run fluuter fire to create 
+ the app, after which you wil test the functionality
+ 
+ iki kataa we can do it together with a dummy project from my SIDE
+ sawaa acha nifanye i'll give you feedback
+ nice
